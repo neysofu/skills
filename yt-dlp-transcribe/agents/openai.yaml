@@ -1,0 +1,6 @@
+interface:
+  display_name: "YT-DLP Transcribe"
+  short_description: "Download and clean YouTube transcripts"
+  default_prompt: "Use $yt-dlp-transcribe to download and clean a high-quality transcript for this YouTube video."
+policy:
+  allow_implicit_invocation: false

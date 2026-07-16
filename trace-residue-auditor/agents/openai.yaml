@@ -1,0 +1,6 @@
+interface:
+  display_name: "Trace Residue Auditor"
+  short_description: "Audit repos for stale history traces and agent residue."
+  default_prompt: "Use $trace-residue-auditor to audit this repository for residue from removed features, old architecture, stale tests, and history-shaped documentation. Report findings with concise suggestions; do not edit until I choose what to remove."
+policy:
+  allow_implicit_invocation: false

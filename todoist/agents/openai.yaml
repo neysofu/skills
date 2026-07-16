@@ -1,0 +1,6 @@
+interface:
+  display_name: "Todoist"
+  short_description: "Manage Todoist through the td CLI"
+  default_prompt: "Use $todoist to manage this Todoist request:"
+policy:
+  allow_implicit_invocation: false

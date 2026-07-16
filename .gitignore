@@ -1,0 +1,33 @@
+# Python bytecode, caches, environments, and build output
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Local credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.npmrc
+.pypirc
+credentials*.json
+service-account*.json
+
+# Editor and operating-system artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Lecture Audio Ingest"
+  short_description: "Transcribe lecture audio with OpenRouter STT"
+  default_prompt: "Use $lecture-audio-ingest to transcribe this lecture audio and save the transcript to Google Drive."
+policy:
+  allow_implicit_invocation: false

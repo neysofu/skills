@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF OCR Bundle"
+  short_description: "Turn PDFs into audit-ready Markdown"
+  default_prompt: "Use $pdf-to-markdown-bundle to turn this PDF into a source-preserving Markdown bundle."
