@@ -1,0 +1,6 @@
+interface:
+  display_name: "Journal Entry"
+  short_description: "Save a new entry to your journal"
+  default_prompt: "Use $journal-entry to record a new journal entry."
+policy:
+  allow_implicit_invocation: false
