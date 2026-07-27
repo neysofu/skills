@@ -1,0 +1,7 @@
+interface:
+  display_name: "Solve Open Problem"
+  short_description: "Attack an open problem with parallel proof search"
+  default_prompt: "Use $solve-open-problem to attempt a complete solution to this open problem: [problem statement]."
+
+policy:
+  allow_implicit_invocation: false
