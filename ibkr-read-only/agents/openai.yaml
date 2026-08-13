@@ -1,0 +1,6 @@
+interface:
+  display_name: "IBKR Read Only"
+  short_description: "Read IBKR Flex reports without trading"
+  default_prompt: "Use $ibkr-read-only to retrieve and interpret my latest IBKR reporting snapshot."
+policy:
+  allow_implicit_invocation: false
