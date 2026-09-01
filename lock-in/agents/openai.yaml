@@ -1,0 +1,6 @@
+interface:
+  display_name: "Lock In"
+  short_description: "Recast a project as an agent-legible system"
+  default_prompt: "Use $lock-in to rethink this project as a coherent agent-operated system and align its design documents and plans."
+policy:
+  allow_implicit_invocation: false

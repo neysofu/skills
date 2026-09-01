@@ -1,0 +1,6 @@
+interface:
+  display_name: "Callee Docs Linter"
+  short_description: "Move caller concerns to their owning side"
+  default_prompt: "Use $lint-callee-docs to audit the named scope for caller-specific documentation stranded on provider code."
+policy:
+  allow_implicit_invocation: false
