@@ -1,0 +1,6 @@
+interface:
+  display_name: "Vocabulary Linter"
+  short_description: "Align repository terms with system distinctions"
+  default_prompt: "Use $lint-vocabulary to audit the named scope for vocabulary that does not match the system's actual distinctions."
+policy:
+  allow_implicit_invocation: false

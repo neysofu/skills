@@ -1,6 +1,6 @@
 interface:
-  display_name: "Lint Residue"
-  short_description: "Remove implementation-history residue."
-  default_prompt: "Use $lint-residue to lint the named repository scope for implementation-history residue."
+  display_name: "Residue Linter"
+  short_description: "Remove implementation-history residue"
+  default_prompt: "Use $lint-residue to audit the named repository scope for implementation-history residue."
 policy:
   allow_implicit_invocation: false

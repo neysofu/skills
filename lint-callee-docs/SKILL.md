@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Callee Docs Linter
 
-Lint the user-named files, diff, commit, or directory. Read definitions, callers, adapters, tests, and adjacent docs deeply enough to establish ownership; keep edits within the named scope.
+Lint the user-named scope. Read definitions, callers, adapters, tests, and adjacent documentation deeply enough to establish ownership; edit only within the scope.
 
 ## Ownership test
 
@@ -23,13 +23,13 @@ A caller concern explains a particular consumer's choice: why it supplies a valu
 - the adapter for a translation between caller and provider models;
 - the operator or integration guide for a human workflow.
 
-Remove a note when the code or names already communicate it, it only inventories who calls the provider, it duplicates an owning explanation, or no current behavior supports it. When a note mixes a provider contract with caller motivation, leave a present-tense contract at the provider and adapt the motivation at its caller-side owner. Generated and vendored docs are linted through their authoritative source.
+Remove a note when code or names already communicate it, it only inventories callers, it duplicates an owning explanation, or no current behavior supports it. When a note mixes a provider contract with caller motivation, keep the contract at the provider and adapt the motivation at its caller-side owner. Fix generated or vendored documentation through its authoritative source or update mechanism.
 
 ## Modes
 
 - **Audit:** Report each finding as `path:line — Remove|Move|Adapt|Report`, naming the owning destination for `Move` and `Adapt`, explaining the ownership mismatch, and stating the intended result. Omit ordinary retained provider contracts.
-- **Fix:** When the user explicitly asks to fix, move, adapt, or clean the docs, apply high-confidence removals, relocations, and adaptations. Preserve behavior. Leave ambiguous ownership, destinations outside the named scope, and changes that require an architectural decision as `Report` findings.
+- **Fix:** When the user explicitly asks to fix, move, adapt, or clean the documentation, apply high-confidence removals, relocations, and adaptations. Preserve behavior. Leave ambiguous ownership, destinations outside the named scope, and changes that require an architectural decision as `Report` findings.
 
-Search terms are navigation aids, never findings. Inspect both sides of each candidate boundary; a provider-side sentence is not misplaced until its owning context is established.
+Use searches to navigate, then inspect both sides of each candidate boundary; a provider-side sentence is not misplaced until its owning context is established.
 
 After fixes, run the narrowest relevant checks and review the diff for duplicated or orphaned explanations. Finish only when every candidate is retained as a provider-owned contract, removed, relocated and adapted at its owner, or reported for judgment.

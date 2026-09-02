@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reinvention Linter"
+  short_description: "Eliminate competing repository authorities"
+  default_prompt: "Use $lint-reinvention to audit the named scope for competing implementations and independently maintained copies of repository knowledge."
+policy:
+  allow_implicit_invocation: false

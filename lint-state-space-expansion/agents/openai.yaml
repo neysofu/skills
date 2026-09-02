@@ -1,0 +1,6 @@
+interface:
+  display_name: "State-Space Expansion Linter"
+  short_description: "Remove states no reachable boundary produces"
+  default_prompt: "Use $lint-state-space-expansion to audit the named scope for modeled states that no reachable boundary or current requirement can produce."
+policy:
+  allow_implicit_invocation: false
