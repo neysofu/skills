@@ -1,6 +1,6 @@
 # Attribution
 
-This skill is derived from [Matt Pocock's `mattpocock/skills` repository](https://github.com/mattpocock/skills).
+This skill is a copy of an upstream skill from [Matt Pocock's `mattpocock/skills` repository](https://github.com/mattpocock/skills).
 
 - Upstream source: [`skills/productivity/handoff`](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff)
 - Copyright: © 2026 Matt Pocock

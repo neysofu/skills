@@ -1,7 +1,0 @@
-# Attribution
-
-This skill is derived from [Matt Pocock's `mattpocock/skills` repository](https://github.com/mattpocock/skills).
-
-- Upstream source: [`skills/in-progress/batch-grill-me`](https://github.com/mattpocock/skills/tree/main/skills/in-progress/batch-grill-me)
-- Copyright: © 2026 Matt Pocock
-- License: [MIT](https://github.com/mattpocock/skills/blob/main/LICENSE)

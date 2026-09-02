@@ -1,0 +1,6 @@
+interface:
+  display_name: "Test Signal Linter"
+  short_description: "Concentrate tests on consequential signal"
+  default_prompt: "Use $lint-test-signal to audit the named scope for the smallest set of high-signal tests."
+policy:
+  allow_implicit_invocation: false
