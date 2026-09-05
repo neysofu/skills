@@ -1,12 +1,12 @@
 ---
 name: review-with-me
-description: Review a pull request together, resolving the choices that determine whether to approve, request changes, or reframe it.
+description: Review a pull request together through rounds of potential objections, from architecture and taste to correctness.
 disable-model-invocation: true
 ---
 
 # Review With Me
 
-Help the reviewer decide what should happen to the named PR, diff, or branch with the least human attention. Investigate the system, recommend a course, and carry the reviewer's judgment through its consequences. Edit code or publish reviews only when requested.
+Build shared judgment with the reviewer about the named PR, diff, or branch. Map its consequential choices as a **decision tree** and work through potential objections in rounds. Your first substantive response is the current frontier for discussion; the review verdict follows that discussion. Edit code or publish reviews only when requested.
 
 Treat code and maintained artifacts as liabilities whose benefits must justify their continuing cost. Judge each coherent change by its net effect on what humans and agents must understand, verify, coordinate, and keep current. Line count and generation effort are poor measures; generated output matters only when it creates those obligations. Explanations, tests, and abstractions can earn their place by reducing the overall burden or protecting required behavior. Prefer the smallest sufficient change.
 
@@ -14,37 +14,39 @@ Treat code and maintained artifacts as liabilities whose benefits must justify t
 
 Establish the review scope and revisions. Read the change and surrounding contracts, callers, tests, and documentation until you can explain its intended benefit, approach, and continuing obligations. Distinguish stated intent, demonstrated behavior, and inferred rationale.
 
-Keep a compact working model of consequential choices and their dependencies, accepted tradeoffs, required revisions, and unresolved evidence. Include choices implicit in the code, architecture, tests, and documentation. Investigate facts yourself; ask the reviewer about intent or tradeoffs that evidence cannot settle.
+Map explicit and implicit choices across purpose, scope, architecture, code, tests, and documentation. Examine engineering taste as well as correctness: unnecessary concepts, misplaced boundaries, verbose implementations, low-value tests, and explanations that add more burden than understanding. Keep track of dependencies, accepted tradeoffs, required revisions, and unresolved evidence. Investigate facts yourself; the reviewer supplies judgment.
 
 ## Find the frontier
 
 For each potential objection, ask:
 
-> Would resolving this change the review's outcome, or make substantial downstream review unnecessary?
+> What might a discerning staff reviewer object to here, and what would accepting or rejecting this choice settle downstream?
 
-The **frontier** contains the most consequential unresolved decisions whose prerequisites are settled. Ask what accepting a choice would resolve and what rejecting it would invalidate. Prioritize by consequence, strength of evidence, reversibility, and the review effort the answer would settle. Discuss independent decisions together; defer details whose relevance depends on an open choice. Surface urgent defects immediately.
+The **frontier** contains every material potential objection whose prerequisites are settled. Present the whole frontier in each round, ordered by consequence and the downstream review it could settle. Defer questions whose relevance depends on an open choice. A confirmed bug is one item in this tree, not a reason to stop exploring independent branches. Surface urgent defects immediately.
+
+Favor surfacing plausible, consequential objections over filtering for concerns you are certain the reviewer will endorse. A concern the reviewer dismisses is useful calibration. Ground each in an observed choice and a concrete possible cost; distinguish established defects from risks and taste judgments. Include reasonable tradeoffs the reviewer may happily accept. Keep hypothetical objections tied to this change, and let minor preferences earn their attention through cumulative impact rather than padding the list.
 
 Challenge whether the capability is worth maintaining before refining its implementation. Compare with existing capabilities and a smaller sufficient change. Make costs concrete: another configuration mode adds supported behaviors, duplicated documentation requires synchronization, and a new subsystem adds lifecycle and failure handling obligations. Group symptoms when they share a cause or a coherent remedy; show representative evidence and establish the breadth of the problem. Prioritize the correction that resolves the pattern over its individual instances.
 
 ## Work in rounds
 
-Open with a brief orientation to the change. Present the frontier as numbered items, each containing:
+Open with a brief orientation to the change, then a numbered list of the frontier's concerns. For each item, give:
 
-- The choice the reviewer needs to make, or the defect already established.
-- Concrete evidence and its consequence, with source locations.
-- Your recommendation, what would resolve the concern, and what the answer settles downstream.
+- A question putting the potential objection to the reviewer.
+- The observed choice, source locations, and why it might matter. Make uncertainty explicit.
+- Your recommended answer and its tradeoff, including what the decision settles or opens downstream.
 
-Provide enough context to judge each item without reconstructing the PR. State established findings directly. Ask for decisions that need human judgment, then wait; when none remain, proceed to the review outcome. Minor suggestions belong only when their benefit earns the reviewer's attention.
+Provide enough context to answer without reconstructing the PR. State established defects directly within their items; ask about the appropriate remedy or review consequence rather than whether the facts are true. Invite the reviewer to accept, dismiss, or refine the concerns, then stop and wait for their answers. Your recommendation on an item does not settle it on the reviewer's behalf.
 
 After each answer, update the working model and recompute the frontier. Preserve independent objections when discarding questions invalidated by a revision. Acceptance settles the specified tradeoff; implementation correctness and unresolved facts still need evidence. Reopen a settled choice only when new evidence changes its consequences, explaining what changed. When the PR changes, inspect the delta and affected dependencies before reusing earlier conclusions.
 
 ## Finish the review
 
-Once a fundamental objection justifies sending the PR back, check the remaining change for independent consequential objections that would survive the proposed revision. Bound this pass to finding those blockers; defer detailed review of work that will be replaced. Finish when the pass is complete and the author has a coherent revision direction.
+When the reviewer agrees that a fundamental objection warrants sending the PR back, inspect the remaining change for independent material concerns that would survive the revision. Put those on the frontier; defer detailed review of work that will be replaced. A likely request-changes verdict does not settle the remaining concerns.
 
 Before recommending approval, establish that the benefit justifies the continuing obligations, account for every materially affected area, and resolve significant risks with appropriate inspection or checks. If missing evidence prevents a decision, state what is needed. An empty frontier means no consequential judgment remains to discuss; it does not establish correctness.
 
-End discussion when further answers would not materially change the outcome. Produce a concise result the reviewer can send to the author:
+Finish when the reviewer has resolved the material concerns, dependent branches have been examined or made irrelevant, and no consequential choice remains silently assumed, or when the reviewer explicitly asks to conclude. If investigation yields no material concerns, explain the basis and ask whether the reviewer wants to conclude. Then produce a concise result the reviewer can send to the author:
 
 - **Approve:** explain why no material objection remains.
 - **Approve with nits or follow-up:** identify the remaining work and why it need not delay merging.

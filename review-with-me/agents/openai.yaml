@@ -1,6 +1,6 @@
 interface:
   display_name: "Review With Me"
-  short_description: "Resolve consequential review decisions in rounds"
-  default_prompt: "Use $review-with-me to help me review this PR and reach approval or coherent revision requests."
+  short_description: "Explore potential review objections together"
+  default_prompt: "Use $review-with-me to walk me through this PR's potential objections, with your recommendations, one frontier at a time."
 policy:
   allow_implicit_invocation: false
