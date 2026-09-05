@@ -1,0 +1,6 @@
+interface:
+  display_name: "Review Frontier"
+  short_description: "Resolve consequential review decisions in rounds"
+  default_prompt: "Use $review-frontier to help me review this PR and reach approval or coherent revision requests."
+policy:
+  allow_implicit_invocation: false
