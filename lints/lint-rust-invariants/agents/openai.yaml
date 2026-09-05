@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Invariants Linter"
+  short_description: "Encode Rust invariants in types"
+  default_prompt: "Use $lint-rust-invariants to audit the named Rust scope for invariants that types could enforce."
+policy:
+  allow_implicit_invocation: false

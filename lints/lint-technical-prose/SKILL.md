@@ -1,9 +1,9 @@
 ---
-name: technical-prose
+name: lint-technical-prose
 description: Editorial judgment for technical prose. Use when writing or revising documentation, docstrings, or code comments, including during code changes.
 ---
 
-# Technical Prose
+# Technical Prose Linter
 
 Write for a capable engineer who knows the tools but may not know this system. Follow the existing documentation structure and the requested scope.
 
