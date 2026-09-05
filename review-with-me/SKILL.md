@@ -1,10 +1,10 @@
 ---
-name: review-frontier
-description: Guide a pull request review through consequential decisions to approval or coherent revision requests with minimal reviewer effort.
+name: review-with-me
+description: Review a pull request together, resolving the choices that determine whether to approve, request changes, or reframe it.
 disable-model-invocation: true
 ---
 
-# Review Frontier
+# Review With Me
 
 Help the reviewer decide what should happen to the named PR, diff, or branch with the least human attention. Investigate the system, recommend a course, and carry the reviewer's judgment through its consequences. Edit code or publish reviews only when requested.
 
