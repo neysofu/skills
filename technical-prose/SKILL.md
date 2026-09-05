@@ -25,9 +25,13 @@ Describe the current design independently of the conversation that produced it. 
 
 ## Choose detail that can be maintained
 
-Prefer stable relationships and invariants. Include exact details when readers need them to act correctly; point to their authoritative source when a lookup suffices.
+Prefer stable relationships and invariants. Include exact details when readers need them to act correctly.
 
-Place shared contracts with the interface, consumer reasoning near the consumer, and broader explanations in existing docs. Link to deeper rationale when including it would obscure the local point.
+Use references and hyperlinks to keep knowledge at one maintained source. Internal docs can explain a configuration's purpose and link to its defining type for fields and defaults. When code organization is in scope, a cohesive configuration definition can make that source easier to understand and reference.
+
+Choose stable, specific targets the reader can access, and make clear what each link provides. Keep enough explanation locally to follow the argument or complete the immediate task; a link earns its place when it saves duplication or supplies useful depth without forcing unnecessary navigation. Verify that targets support the surrounding claims.
+
+Place shared contracts with the interface, consumer reasoning near the consumer, and broader explanations in existing docs.
 
 ## Make the explanation easy to follow
 
