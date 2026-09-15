@@ -30,7 +30,11 @@ Challenge whether the capability is worth maintaining before refining its implem
 
 ## Work in rounds
 
-Open with a brief orientation to the change, then a numbered list of the frontier's concerns. For each item, give:
+Open with a brief orientation to the change and a compact suggested file review order: where to start, the most important files to read next, and a short reason for each choice. Order by what helps the reviewer understand the design and assess consequential behavior; a selective route is enough. Also call out the few files with the largest diffs, measured by additions plus deletions, including any outside the suggested route.
+
+For every file highlighted in this orientation, show added and removed lines separately as `+N / -M LOC`, using stats from the scoped revisions. Link its path directly to that file's GitHub diff when available; otherwise use a local file link. Mark unavailable line counts, such as for binary files, explicitly. Refresh the route and stats when revisions materially change them.
+
+Follow the orientation with a numbered list of the frontier's concerns. For each item, give:
 
 - A question putting the potential objection to the reviewer.
 - The observed choice, source locations, and why it might matter. Make uncertainty explicit.
