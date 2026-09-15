@@ -40,6 +40,7 @@ Read all of the following files directly. Paths are relative to this skill's dir
 
 - [lint-callee-docs/SKILL.md](../lints/lint-callee-docs/SKILL.md)
 - [lint-reinvention/SKILL.md](../lints/lint-reinvention/SKILL.md)
+- [lint-removal/SKILL.md](../lints/lint-removal/SKILL.md)
 - [lint-residue/SKILL.md](../lints/lint-residue/SKILL.md)
 - [lint-rust-invariants/SKILL.md](../lints/lint-rust-invariants/SKILL.md)
 - [lint-state-space-expansion/SKILL.md](../lints/lint-state-space-expansion/SKILL.md)

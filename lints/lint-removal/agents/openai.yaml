@@ -1,0 +1,4 @@
+interface:
+  display_name: "Removal Linter"
+  short_description: "Remove machinery that costs more than it earns"
+  default_prompt: "Use $lint-removal to audit the named scope for code, abstractions, architecture, and supporting artifacts worth removing."
