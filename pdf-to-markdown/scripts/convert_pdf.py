@@ -90,7 +90,7 @@ def resolve_backend(value: str) -> str:
             return resolved
     raise BackendMissingError(
         f"cannot find executable {value!r}; install with "
-        "`cargo install pdf-inspector --version 0.1.7 --locked`"
+        "`cargo install pdf-inspector --version 1.20.0 --locked`"
     )
 
 

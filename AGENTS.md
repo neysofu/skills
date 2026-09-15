@@ -1,6 +1,6 @@
 # Repository conventions
 
-Last successful global upstream sync: `2026-09-02T12:24:08-04:00`.
+Last successful global upstream sync: `2026-09-15T14:07:06-04:00`.
 
 Once this timestamp is more than 7 days old, read every `ATTRIBUTION.md`, sync all corresponding skills, and replace it with the completion time after the full sync succeeds.
 

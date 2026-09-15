@@ -19,7 +19,7 @@ python3 <skill-dir>/scripts/convert_pdf.py --check-deps
 If `pdf2md` is missing, install the audited backend release, then repeat the check:
 
 ```bash
-cargo install pdf-inspector --version 0.1.7 --locked
+cargo install pdf-inspector --version 1.20.0 --locked
 ```
 
 The check is complete when it prints the resolved `pdf2md` executable.
