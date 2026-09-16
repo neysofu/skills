@@ -1,0 +1,6 @@
+interface:
+  display_name: "Pin PR"
+  short_description: "Name the current task for its PR and pin it"
+  default_prompt: "Use $pin-pr to rename the current task for its pull request and pin it in the sidebar."
+policy:
+  allow_implicit_invocation: false
