@@ -8,7 +8,7 @@ Rename and pin the current Codex task using its pull request.
 
 1. Resolve the PR from the user's arguments or current conversation; otherwise look up the current branch's PR. Use the repository's PR tools or `gh pr view` to confirm its number, title, and linked issues. If the PR is missing or ambiguous, ask for its URL before changing the task.
 2. Compose the title as `#PR_NUMBER short label` with an optional ` (TICKET)` suffix.
-   - Use one or two words that broadly identify the area or kind of work.
+   - Use one or two concrete, memorable words naming the specific behavior, object, or detail changed. Ground the label in the PR and conversation; inspect the relevant diff if these leave the change unclear. Choose the detail that helps a human distinguish this task from others in the same area.
    - Include a ticket only when it is relevant to this PR and its existence is verified through a linked issue record or a successful lookup in its tracker. A plausible ID in a branch name or title is a lookup candidate, not verification. Prefer the primary ticket the PR fixes; omit the suffix when no single ticket is established or verification is unavailable.
    - Use `#22` for an issue in the PR's repository, `owner/repo#22` for another repository's issue, or the tracker's canonical key, such as `LINE-98`.
 3. Use the Codex app tools to rename and pin the current task:
@@ -20,7 +20,7 @@ Rename and pin the current Codex task using its pull request.
 Examples:
 
 ```text
-#100 ui polish
-#12 data cleanup (#22)
-#123 api updates (LINE-98)
+#100 signed qty
+#12 sidebar radius (#22)
+#123 token expiry (LINE-98)
 ```
