@@ -1,73 +1,55 @@
 ---
 name: lecture-audio-ingest
-description: Transcribe local lecture audio through OpenRouter into Markdown, JSON, and optional Google Drive artifacts.
+description: Transcribe long lectures through OpenRouter with a low-cost default and optional dual-pass audio reconciliation.
 disable-model-invocation: true
 ---
 
 # Lecture Audio Ingest
 
-Use this skill to turn local lecture audio into durable transcript artifacts.
-Prefer the bundled script for audio conversion, chunking, OpenRouter calls, retry handling, and transcript assembly.
+Transcribe 30–180 minute recordings faithfully in their original language. Preserve substantive repetitions, self-corrections, mistakes, numbers, negation and spoken equations; add punctuation without rewriting the lecture.
 
-## Core Workflow
+Use **standard** mode unless the user explicitly accepts dual-pass cost or a representative pilot shows that one ASR pass is materially inadequate. Standard mode uses one transcription model, five-minute core chunks and bounded concurrency. Dual-pass mode uses two independent ASR drafts plus audio-grounded reconciliation on two-minute chunks.
 
-1. Resolve the target audio file and confirm it exists.
-2. Use `ffprobe` to inspect duration and format when file size or length matters.
-3. Choose a model preset:
-   - `quality`: `openai/gpt-4o-transcribe` for highest-quality transcripts.
-   - `balanced`: `openai/gpt-4o-mini-transcribe` for cheaper high-volume transcription.
-   - `fast`: `openai/whisper-large-v3-turbo` for speed and low cost.
-   - `robust`: `openai/whisper-large-v3` for noisy or multilingual audio where Whisper robustness matters.
-4. Before any real transcription run, tell the user that the audio bytes will be sent to OpenRouter and get explicit approval for that exact file.
-5. Run `scripts/transcribe_lecture.py`, passing `--language en` only when the lecture language is known.
-6. Review the generated `.md` transcript and `.json` metadata.
-7. If the user requested Google Drive output, save the Markdown transcript as a native Google Doc or upload the Markdown file to the requested Drive folder using available Google Drive connector tools. Verify the destination folder or document link before final handoff.
+## Prepare
 
-## Command Pattern
+Resolve the recording and output directory. For a Drive source, use the Google Drive skill to fetch the verified audio. Treat an existing transcript as reference material rather than ground truth. Read [references/openrouter-stt.md](references/openrouter-stt.md) before changing models or API options.
 
-Resolve the script path relative to the directory containing this `SKILL.md`:
+Inspect duration and channels with `ffprobe`. When stereo channels differ in speakers, quality or phase, compare them and select the better channel with `--channel`. Keep the original recording; process it without denoising or time stretching unless an audio comparison supports the change.
+
+Ask for language, subject or vocabulary only when missing and useful. Put dual-pass reconciliation hints in an ignored local context file. Slides can suggest spellings, but the audio establishes what was said.
+
+Tell the user which recording will go to OpenRouter. A request to transcribe identified audio through OpenRouter authorizes that upload. Read credentials only from `~/.config/openrouter/api_key` as specified by `$openrouter-api-auth`; stop when unavailable and never print the key.
+
+## Transcribe
+
+Resolve the script relative to this skill directory. Python 3 and `ffmpeg`/`ffprobe` are required.
 
 ```bash
-python3 scripts/transcribe_lecture.py \
-  "/path/to/lecture.m4a" \
-  --output-dir "/path/to/output" \
-  --preset quality \
+python3 <skill-dir>/scripts/transcribe_lecture.py \
+  /path/to/lecture.m4a \
+  --output-dir /path/to/output \
   --language en \
   --confirm-external-upload
 ```
 
-Use `--model <openrouter-model-slug>` to override the preset. Use `--dry-run` to verify chunking and output paths without calling OpenRouter.
+Omit `--language` for unknown or mixed-language audio. Use `--dry-run` to inspect chunk and request counts without reading credentials or uploading audio. For unfamiliar models, accents or recording conditions, first run short excerpts spanning technical speech, numbers and distant questions.
 
-Use `$openrouter-api-auth` to place the OpenRouter API key at `~/.config/openrouter/api_key`, where the script reads it by default.
+Use `--mode dual-pass` only when the user requested it or accepted its added cost after a failed pilot. For a local problem in an otherwise usable transcript, run dual-pass only over a bounded `--start`/`--end` excerpt in a separate output directory. Apply the resulting acoustic correction to a reviewed copy instead of rerunning the whole lecture.
 
-Never put API keys in prompts, command lines, logs, skill files, transcripts, or final answers.
-Never run without user consent for the exact file being uploaded.
+Core chunks cover the source once without overlap and prefer nearby silence. Padding is off because adjacent speech can leak into the output. Reduce `--jobs` when a provider throttles concurrent standard requests; reduce `--chunk-seconds` in a fresh output directory when longer requests time out.
 
-## Output Contract
+Successful work is checkpointed atomically. Resume with the identical command plus `--resume`. Changed output-affecting settings require a new output directory. Transport retries are bounded and can incur duplicate charges after a lost response.
+
+## Verify and deliver
 
 The script writes:
 
-- `<title>.transcript.md`: timestamped transcript with model, source, duration, and chunk metadata.
-- `<title>.transcript.json`: raw chunk-level response metadata, generation IDs, timings, and transcript text.
+- `<title>.transcript.md`: selected transcript text with source chunk ranges.
+- `<title>.transcript.json`: source hash, settings, raw model responses, usage and generation IDs; dual-pass runs also retain reconciliation attempts and uncertainty data.
+- `<title>.review.md`: unresolved or heuristic boundary/completeness flags.
 
-For Google Drive delivery, prefer one native Google Doc per source recording, titled:
+Read the review file. Check every flagged join, plus the beginning, middle, end and one numerical or technical passage against the source audio. Repair only failed spans. Resolve names, numbers, negations and formulas acoustically; preserve `[unclear]` with its source time when the sound remains ambiguous.
 
-```text
-<source title> transcript
-```
+Put corrections in `<title>.reviewed.md` with a local correction log containing source time and evidence. Preserve generated artifacts so resume cannot overwrite editorial work. `complete` means the selected pipeline finished, not that a human verified every word; label pending repairs honestly.
 
-If a folder URL is supplied, verify that exact folder first. If the available connector tools cannot place or move files into folders, create the local transcript artifacts and report the folder-placement limitation plainly instead of pretending the upload happened.
-
-## Model Guidance
-
-Do not claim a single model is permanently best. OpenRouter model availability and pricing change.
-For current STT request shape and model discovery, read `references/openrouter-stt.md` when adjusting model choices, debugging API errors, or updating this skill.
-
-For important legal, academic, or assessment recordings, use `quality` first. If the run is too slow, too expensive, or blocked by provider availability, retry with `balanced` or `fast` and record the model used in the transcript metadata.
-
-## Long Audio Rules
-
-- Split lecture audio before upload; direct whole-file uploads often time out.
-- Default to 5-minute MP3 chunks at mono 16 kHz, 64 kbps.
-- Keep chunk timestamps in the transcript so later summaries can cite approximate source time.
-- Avoid deleting raw source audio. Temporary converted chunks can be deleted after successful transcript generation.
+Deliver the transcript and remaining uncertainty. Save to Google Drive only when requested, using the Drive skill and verifying the destination. Keep study notes, summaries and translations outside this transcription workflow.
