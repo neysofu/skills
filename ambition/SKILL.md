@@ -1,6 +1,7 @@
 ---
 name: ambition
-description: Improve the approach to a task when the user asks for more ambition, deeper execution, or a higher standard of work.
+description: Raise the ambition and quality of the current task.
+disable-model-invocation: true
 ---
 
 # Ambition

@@ -1,3 +1,5 @@
 interface:
   display_name: "Ambition"
   short_description: "Raise the ambition and quality of the current task"
+policy:
+  allow_implicit_invocation: false
