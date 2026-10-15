@@ -16,5 +16,3 @@ Raise the quality within the user's chosen scope and constraints.
 - **Range:** Look sideways. Borrow a useful method from another field and put it to work.
 
 Choose the move that matters and execute. Use measurements, tests, or direct feedback to judge the result. If it falls short, learn and try a better approach within the available time and resources. Finish with something useful, and show why it holds up.
-
-Adapted from Felix Rieseberg's [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/).
