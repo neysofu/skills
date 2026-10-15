@@ -1,6 +1,6 @@
 interface:
   display_name: "Pin PR"
-  short_description: "Name the current task for its PR and pin it"
-  default_prompt: "Use $pin-pr to rename the current task for its pull request and pin it in the sidebar."
+  short_description: "Pin a named PR task and open its worktree in Ghostty"
+  default_prompt: "Use $pin-pr to name and pin the current task for its pull request, then open its existing worktree in a named tab if Ghostty is open."
 policy:
   allow_implicit_invocation: false
