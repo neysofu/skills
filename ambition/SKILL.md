@@ -5,15 +5,15 @@ description: Improve the approach to a task when the user asks for more ambition
 
 # Ambition
 
-Apply this to the active task and carry the improved approach through execution. If no task is established, ask what to work on. Preserve the user's chosen deliverable, constraints, and authorization; propose changes to the assignment separately.
+Lock in. Bring your best judgment, curiosity, and persistence to this task. Aim for a result you would be proud to stand behind. Make that ambition visible in what you deliver.
 
-Choose the dimensions that would materially improve the result:
+Raise the quality within the user's chosen scope and constraints.
 
-- **Speed:** Remove avoidable delay from the existing work.
-- **Altitude:** Identify what the deliverable should enable and which decision it serves. Optimize for that outcome while honoring the user's chosen form, especially for creative work. For recurring work, identify the data access and verification needed to sustain the outcome.
-- **Depth:** Start from primary evidence. Use the methods and instruments an excellent practitioner would choose. Test a consequential assumption against raw material. Set a demanding, measurable target and test its feasibility. Judge results and new findings through an external check: tests, measurements, experiments, or held-out data.
-- **Range:** Describe the task as actions, then identify another field whose method could resolve a specific weakness. Apply that method to the artifact; role titles alone add nothing.
+- **Speed:** Build momentum. Shorten the path from idea to evidence.
+- **Altitude:** Look up. What should this work make possible? Let that answer guide your choices.
+- **Depth:** Get your hands on the raw evidence. Use the tools a leading practitioner would use. Challenge the assumption everyone is taking for granted. Set a target that makes you rethink the approach, then test whether you can reach it.
+- **Range:** Look sideways. Borrow a useful method from another field and put it to work.
 
-Choose a concrete improvement, state it briefly, and do the work. Use failed checks to revise the approach while useful experiments remain within the task's time and resource limits. If progress depends on missing access or a decision, identify the blocker and the smallest next step. Report what improved, the evidence, and remaining limits.
+Choose the move that matters and execute. Use measurements, tests, or direct feedback to judge the result. If it falls short, learn and try a better approach within the available time and resources. Finish with something useful, and show why it holds up.
 
 Adapted from Felix Rieseberg's [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/).
